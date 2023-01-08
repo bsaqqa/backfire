@@ -13,7 +13,8 @@
     ],
     "require": {
         "php": ">=8.0",
-        "adbario/php-dot-notation": "^3.2"
+        "adbario/php-dot-notation": "^3.2",
+        "ext-zip": "*"
     },
     "require-dev": {
         "symfony/var-dumper": "^6.2"

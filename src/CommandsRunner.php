@@ -38,6 +38,7 @@ class CommandsRunner
 
         // run the command
         $command->run(getArgs());
+
         echo PHP_EOL;
     }
 

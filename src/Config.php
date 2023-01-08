@@ -40,15 +40,19 @@ class Config
      */
     private function registerConfig(): void
     {
-        // load the main config file
-        $config = require __DIR__ . '/../config/config.php';
+        $backfireConfig = require __DIR__ . '/../config/backfire.php';
+
+        // load the main config file from user settings or get the default one
+        $userConfig = $_SERVER['HOME'] . '/' . $backfireConfig['config_path'] . '/' . $backfireConfig['config_name'];
+
+        if (!file_exists($userConfig)) {
+            $userConfig = __DIR__ . '/../stubs/config.stub.php';
+        }
 
         // get all config files from config folder
         $configFiles = glob(__DIR__ . '/../config/*.php');
 
-        // remove the config file from the list
-        $configFiles = array_diff($configFiles, [__DIR__ . '/../config/config.php']);
-
+        $config = require $userConfig;
         // load all config files
         foreach ($configFiles as $file) {
             // get the config name from the file name

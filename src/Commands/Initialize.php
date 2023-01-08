@@ -31,7 +31,7 @@ class Initialize extends Command implements CommandInterface
                 echo "You can edit it from: $configFullPath" . PHP_EOL;
                 return;
             }
-            $configContent = file_get_contents(__DIR__ . '/../../config/config.php');
+            $configContent = file_get_contents(__DIR__.'/../../stubs/config.stub.php');
 
             if (!file_exists($configPath) && !mkdir($configPath, 0777, true) && !is_dir($configPath)) {
                 throw new \RuntimeException(sprintf('Directory "%s" was not created', $configPath));

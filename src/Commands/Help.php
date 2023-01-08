@@ -29,7 +29,7 @@ class Help extends Command implements CommandInterface
         echo "\n".PHP_EOL;
 
         echo "Example: \n";
-        echo "  backfire$color db:backup$endColor \n";
+        echo "  backfire$color backup connection_name$endColor \n";
 
         echo PHP_EOL;
     }

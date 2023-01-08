@@ -80,3 +80,19 @@ if(!function_exists('warnText')){
         return "\033[33m" . $text . "\033[0m";
     }
 }
+
+//report
+if(!function_exists('report')){
+    /**
+     * @param  string  $message
+     * @param  string  $type
+     * @return void
+     */
+    function report(string $message, string $type = 'info'): void
+    {
+        $type = strtolower($type);
+        // write the message to the log file
+        $log = new BSaqqa\Backfire\Log();
+        $log->write($message, $type);
+    }
+}

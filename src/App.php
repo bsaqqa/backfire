@@ -28,8 +28,12 @@ class App
         // load the config file
         $app->registerConfig();
 
+        // set settings for the application
+        $app->setAppSettings();
+
         // load the commands
         $app->registerCommands();
+
 
         // run the application
         $app->run();
@@ -69,6 +73,34 @@ class App
         $this->config = Config::init();
     }
 
+
+    private function setAppSettings(): void
+    {
+        // set the timezone
+        date_default_timezone_set(config('app.timezone'));
+
+        // set display errors
+        ini_set('display_errors', config('app.display_error'));
+
+        // set disable functions
+        ini_set('disable_functions', config('app.disable_functions'));
+
+        // set memory limit
+        ini_set('memory_limit', config('app.memory_limit'));
+
+        // set max execution time
+        ini_set('max_execution_time', config('app.max_execution_time'));
+
+        // set the error reporting
+        error_reporting(config('app.error_reporting'));
+
+        // set chdir to the project root
+        chdir( $_SERVER['HOME'] . '/' . config('app.chdir'));
+
+        // set charset
+        ini_set('default_charset', config('app.charset'));
+    }
+
     /**
      * Run the application
      * this method will run the command that the user entered the terminal
@@ -77,6 +109,7 @@ class App
     private function run(): void
     {
         try {
+            // run the command
             CommandsRunner::run($this->commands);
         } catch (\Exception $e) {
             echoError($e->getMessage());
