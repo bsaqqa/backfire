@@ -31,6 +31,8 @@
             "helpers/helpers.php"
         ]
     },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "chmod +x backfire"

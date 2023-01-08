@@ -67,7 +67,7 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
 1. Run install command
 
 ```shell
-  composer require global bsaqqa/backfire
+  composer global require bsaqqa/backfire
 ```
 
 2. Run initialize command 
