@@ -20,8 +20,7 @@
         "symfony/var-dumper": "^6.2"
     },
     "bin": [
-        "backfire",
-        "backfire.bat"
+        "backfire"
     ],
     "autoload": {
         "psr-4": {
@@ -33,6 +32,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "optimize-autoloader": true,
     "scripts": {
         "post-install-cmd": [
             "chmod +x backfire"
