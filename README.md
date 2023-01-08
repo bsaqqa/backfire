@@ -8,8 +8,8 @@ We run it as a cron job on Windows/Ubuntu servers to make sure we have the lates
 
 - [X] Easy to install and configure
 - [X] Can be run as a cron job on Windows and Ubuntu servers
-- [X] Create it as a composer package (Coming Soon)
-- [ ] Supports multiple database servers (Coming Soon)
+- [X] Create it as a composer package
+- [X] Supports multiple database servers (Many connections)
 - [ ] Supports different database engines (Coming Soon)
 - [ ] Supports automatic restoration of backups (Coming Soon)
 - [ ] Supports email notifications (Coming Soon)
@@ -26,30 +26,30 @@ I plan to continue developing and enhancing the **Backfire** in the future. Belo
 Customizable backup frequency and destination
 
 - [X] Create it as a composer package:
-Currently, the script is not available as a composer package. In the future, I plan to create it as a composer package to make it easier for users to install and use the script.
+Currently, Backfire is not available as a composer package. In the future, I plan to create it as a composer package to make it easier for users to install and use Backfire.
 
-- [ ] Implement support for multiple database servers: 
-Currently, the script only supports backing up databases on a single server. In the future, I plan to add support for backing up databases on multiple servers.
+- [X] Implement support for multiple database servers: 
+Currently, Backfire only supports backing up databases on a single server. In the future, I plan to add support for backing up databases on multiple servers.
 
 - [ ] Add support for different database engines: 
 The script currently only supports MySQL databases. In the future, I plan to add support for other database engines such as PostgreSQL and SQL Server.
 
 
-- [ ] Improve error handling: I plan to improve the script's error handling to make it more robust and user-friendly.
+- [ ] Improve error handling: I plan to improve Backfire's error handling to make it more robust and user-friendly.
 
-- [ ] Add support for automatic restoration of backups: Currently, the script only supports creating backups. In the future, I plan to add support for automatically restoring backups in case of data loss.
+- [ ] Add support for automatic restoration of backups: Currently, Backfire only supports creating backups. In the future, I plan to add support for automatically restoring backups in case of data loss.
 
 - [ ] Add support for email notifications: I plan to add the ability to send email notifications to users when a backup is created or when an error occurs.
 
-- [ ] Improve documentation and examples: I plan to improve the documentation and examples provided in the repository to make it easier for users to get started with the script.
+- [ ] Improve documentation and examples: I plan to improve the documentation and examples provided in the repository to make it easier for users to get started with Backfire.
 
-- [ ] Add support for cloud storage: Currently, the script only supports saving backups to a local folder. In the future, I plan to add support for other cloud storage providers such as OneDrive, Google Drive and Dropbox.
+- [ ] Add support for cloud storage: Currently, Backfire only supports saving backups to a local folder. In the future, I plan to add support for other cloud storage providers such as OneDrive, Google Drive and Dropbox.
 
 - [ ] Add support for encryption of backups: I plan to add the ability to encrypt backups to protect sensitive data.
 This roadmap represents our current plans for the development of the **Backfire**, but it is subject to change as I receive feedback and suggestions from users.
 
 
-I welcome any feedback or ideas you have for improving the script, and I look forward to continuing to develop and enhance it in the future.
+I welcome any feedback or ideas you have for improving Backfire, and I look forward to continuing to develop and enhance it in the future.
  
 
 
