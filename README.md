@@ -105,7 +105,7 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
 You can run it with below command:
 
 ```shell
-  backfire db:backup
+  backfire backup
 ```
 
 
@@ -132,7 +132,7 @@ You can setup cron job on Windows using schedule with below steps:
 11. Click New
 12. Select "Start a program"
 13. Enter the path to `backfire.bat` in the "~/composer/vendor/bsaqqa/backfire/" field
-14. Enter the path to db:backup in the "Add arguments" field
+14. Enter the path to `backup` in the "Add arguments" field
 15. Click OK
 
 
@@ -147,7 +147,7 @@ You can setup cron job on Ubuntu using crontab with below steps:
 
 3. Add the following line to the end of the file:
 
-        0 0 * * * ./backfire db:backup
+        0 0 * * * ./backfire backup
 
 
 4. Save and exit
