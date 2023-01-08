@@ -1,0 +1,39 @@
+{
+    "name": "bsaqqa/backfire",
+    "description": "Is a backup Database CLI for PHP",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Baraa AL-Saqqa",
+            "email": "baraa.sk@gmail.com",
+            "homepage": "https://github.com/bsaqqa"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "symfony/var-dumper": "^6.2",
+        "adbario/php-dot-notation": "^3.2"
+    },
+    "bin": [
+        "backfire",
+        "backfire.bat"
+    ],
+    "autoload": {
+        "psr-4": {
+            "BSaqqa\\Backfire\\": "src/"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "chmod +x backfire"
+        ],
+        "post-update-cmd": [
+            "chmod +x backfire"
+        ]
+    }
+}
