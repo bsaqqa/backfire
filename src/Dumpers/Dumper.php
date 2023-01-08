@@ -33,7 +33,7 @@ abstract class Dumper
         $fileName = str_replace(array('{{database_name}}', '{{connection_name}}'), array($dbName, $connection),
             $fileName);
 
-        $backupPath = $_SERVER['HOME'].'/'.rtrim($backupPath, '/').'/';
+        $backupPath = getHomePath().'/'.rtrim($backupPath, '/').'/';
 
         $backupName = rtrim($fileName, '.sql').'.sql';
 

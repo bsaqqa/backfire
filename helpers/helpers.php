@@ -96,3 +96,14 @@ if(!function_exists('report')){
         $log->write($message, $type);
     }
 }
+
+// getHomePath
+if(!function_exists('getHomePath')){
+    /**
+     * @return string
+     */
+    function getHomePath(): string
+    {
+        return $_SERVER['HOME'] ?? $_SERVER['HOMEPATH'] ?? $_SERVER['USERPROFILE'];
+    }
+}

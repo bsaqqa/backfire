@@ -21,7 +21,7 @@ class Initialize extends Command implements CommandInterface
             $configPath = config('backfire.config_path');
             $configName = config('backfire.config_name');
 
-            $configPath = $_SERVER['HOME'].'/'. rtrim($configPath, '/') . '/';
+            $configPath = getHomePath().'/'. rtrim($configPath, '/') . '/';
 
             $configFullPath = $configPath . $configName;
 

@@ -43,7 +43,7 @@ class Config
         $backfireConfig = require __DIR__ . '/../config/backfire.php';
 
         // load the main config file from user settings or get the default one
-        $userConfig = $_SERVER['HOME'] . '/' . $backfireConfig['config_path'] . '/' . $backfireConfig['config_name'];
+        $userConfig = getHomePath() . '/' . $backfireConfig['config_path'] . '/' . $backfireConfig['config_name'];
 
         if (!file_exists($userConfig)) {
             $userConfig = __DIR__ . '/../stubs/config.stub.php';
@@ -83,7 +83,7 @@ class Config
         $configPath = config('backfire.config_path');
         $configName = config('backfire.config_name');
 
-        $configPath = $_SERVER['HOME'].'/'. rtrim($configPath, '/') . '/';
+        $configPath = getHomePath().'/'. rtrim($configPath, '/') . '/';
 
         $configFullPath = $configPath . $configName;
         // if user config file is exists

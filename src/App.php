@@ -95,7 +95,7 @@ class App
         error_reporting(config('app.error_reporting', E_ERROR | E_PARSE));
 
         // set chdir to the project root
-        chdir( $_SERVER['HOME'] . '/' . config('app.chdir', '/'));
+        chdir( getHomePath() . '/' . config('app.chdir', '/'));
 
         // set charset
         ini_set('default_charset', config('app.charset', 'UTF-8'));

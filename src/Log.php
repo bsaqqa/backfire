@@ -16,7 +16,7 @@ class Log
         $logPath = config('reporting.log_path');
         $logName = config('reporting.log_name');
 
-        $logPath = $_SERVER['HOME'].'/'. rtrim($logPath, '/') . '/';
+        $logPath = getHomePath().'/'. rtrim($logPath, '/') . '/';
 
         $logFullPath = $logPath . $logName;
 
