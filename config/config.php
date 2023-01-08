@@ -6,9 +6,10 @@ return [
      * Database config
      *
      */
-    "default_connection" => "connection1", // the default connection to use when no connection is specified
+    "default_connection" => "default", // the default connection to use when no connection is specified
+
     "connections" => [
-        "connection1" => [ // connection name that will be used in the command line to select the connection (you can add more than one connection)
+        "default" => [ // connection name that will be used in the command line to select the connection (you can add more than one connection)
             'type' => 'mysql', // in the future we will support more types
             'host' => 'localhost',
             'port' => 3306,

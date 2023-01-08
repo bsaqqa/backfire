@@ -2,7 +2,7 @@
 
 PHP CLI For Auto Backup DB.
 
-I run it as a cron job on Windows/Ubuntu servers to make sure we have the latest version of DB daily.
+We run it as a cron job on Windows/Ubuntu servers to make sure we have the latest version of DB daily.
 
 # Features
 
@@ -85,13 +85,17 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
 4. Edit the following variables to match your DB information and backup folder path:
 
 ```php
-$host = "localhost";  // host name
-$user = "root";      // user name
-$password = "";     // password
-$database = "test"; // database name
-$backupFolder =  '/backups/'; // backup folder name
-$hasOneDriveFolder = true; // if you have a onedrive folder to save the backup file
-$fileName = $database .'-' . date('Y-m-d').'-'. time() . '.sql';
+"connections" => [
+  "default" => [ // connection name that will be used in the command line to select the connection (you can add more than one connection)
+      'type' => 'mysql', // in the future we will support more types
+      'host' => 'localhost',
+      'port' => 3306,
+      'username' => 'root',
+      'password' => '',
+      'database' => 'backfire',
+  ],
+  // ... more connections
+],
 ```
 
 
@@ -100,7 +104,9 @@ $fileName = $database .'-' . date('Y-m-d').'-'. time() . '.sql';
 
 You can run it with below command:
 
-    php backup.php
+```shell
+  backfire db:backup
+```
 
 
 
@@ -111,7 +117,7 @@ You can run it with below command:
 ![image](https://user-images.githubusercontent.com/21352835/209930065-56d23560-4f6a-4ac4-8ef5-bb8011ec0914.png)
 
 
-You can setup cron job on Windows using schedual with below steps:
+You can setup cron job on Windows using schedule with below steps:
 
 1. Open Task Scheduler
 2. Click Create a Basic Task
@@ -125,8 +131,8 @@ You can setup cron job on Windows using schedual with below steps:
 10. Click on "Actions"
 11. Click New
 12. Select "Start a program"
-13. Enter the path to php.exe in the "Program/script" field
-14. Enter the path to backup.php in the "Add arguments" field
+13. Enter the path to `backfire.bat` in the "~/composer/vendor/bsaqqa/backfire/" field
+14. Enter the path to db:backup in the "Add arguments" field
 15. Click OK
 
 
@@ -141,7 +147,7 @@ You can setup cron job on Ubuntu using crontab with below steps:
 
 3. Add the following line to the end of the file:
 
-        0 0 * * * php /path/to/backup.php
+        0 0 * * * ./backfire db:backup
 
 
 4. Save and exit
