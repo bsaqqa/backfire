@@ -14,24 +14,12 @@ class MySQLDumper extends Dumper implements DumperInterface
      */
     public static function dump(int|string $connection, mixed $database): string
     {
-        $dbHost = $database['host'];
-        $dbUser = $database['username'];
-        $dbPassword = $database['password'];
-        $dbPort = $database['port'];
-        $dbName = $database['database'];
+        // Get the configurations
+        [
+            $dbHost, $dbUser, $dbPassword, $dbPort, $dbName, $backupPath, $backupFullPath
+        ] = self::getConfigurations($database, $connection);
 
-        $backupPath = config('storage.path');
-
-        $fileName = config('backup.name');
-        $fileName = str_replace(array('{{database_name}}', '{{connection_name}}'), array($dbName, $connection),
-            $fileName);
-
-        $backupPath = $_SERVER['HOME'].'/'.rtrim($backupPath, '/').'/';
-
-        $backupName = rtrim($fileName, '.sql').'.sql';
-
-        $backupFullPath = $backupPath.$backupName;
-
+        // check if the backup path exists
         self::checkBackupPath($backupPath);
 
         $command = "mysqldump  --user={$dbUser} --password={$dbPassword} --host={$dbHost} --port=$dbPort  {$dbName}".

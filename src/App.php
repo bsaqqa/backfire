@@ -77,28 +77,28 @@ class App
     private function setAppSettings(): void
     {
         // set the timezone
-        date_default_timezone_set(config('app.timezone'));
+        date_default_timezone_set(config('app.timezone', 'UTC'));
 
         // set display errors
-        ini_set('display_errors', config('app.display_error'));
+        ini_set('display_errors', config('app.display_error', "Off"));
 
         // set disable functions
-        ini_set('disable_functions', config('app.disable_functions'));
+        ini_set('disable_functions', config('app.disable_functions', ''));
 
         // set memory limit
-        ini_set('memory_limit', config('app.memory_limit'));
+        ini_set('memory_limit', config('app.memory_limit', -1));
 
         // set max execution time
-        ini_set('max_execution_time', config('app.max_execution_time'));
+        ini_set('max_execution_time', config('app.max_execution_time', 0));
 
         // set the error reporting
-        error_reporting(config('app.error_reporting'));
+        error_reporting(config('app.error_reporting', E_ERROR | E_PARSE));
 
         // set chdir to the project root
-        chdir( $_SERVER['HOME'] . '/' . config('app.chdir'));
+        chdir( $_SERVER['HOME'] . '/' . config('app.chdir', '/'));
 
         // set charset
-        ini_set('default_charset', config('app.charset'));
+        ini_set('default_charset', config('app.charset', 'UTF-8'));
     }
 
     /**

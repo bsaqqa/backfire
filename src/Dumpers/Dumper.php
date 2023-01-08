@@ -13,4 +13,32 @@ abstract class Dumper
             throw new \RuntimeException(sprintf('Directory "%s" was not created', $backupPath));
         }
     }
+
+    /**
+     * @param  mixed  $database
+     * @param  int|string  $connection
+     * @return array
+     */
+    public static function getConfigurations(mixed $database, int|string $connection): array
+    {
+        $dbHost = $database['host'];
+        $dbUser = $database['username'];
+        $dbPassword = $database['password'];
+        $dbPort = $database['port'];
+        $dbName = $database['database'];
+
+        $backupPath = config('storage.path');
+
+        $fileName = config('backup.name');
+        $fileName = str_replace(array('{{database_name}}', '{{connection_name}}'), array($dbName, $connection),
+            $fileName);
+
+        $backupPath = $_SERVER['HOME'].'/'.rtrim($backupPath, '/').'/';
+
+        $backupName = rtrim($fileName, '.sql').'.sql';
+
+        $backupFullPath = $backupPath.$backupName;
+
+        return array($dbHost, $dbUser, $dbPassword, $dbPort, $dbName, $backupPath, $backupFullPath);
+    }
 }
