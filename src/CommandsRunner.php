@@ -56,14 +56,12 @@ class CommandsRunner
     /**
      * Check if the command exists
      * @param  mixed  $commandName
-     * @param  array  $commands
+     * @param  array  $commandsList
+     * @return bool
      */
-    protected static function isCommandExists(mixed $commandName, array $commands): void
+    protected static function isCommandExists(mixed $commandName, array $commandsList): bool
     {
-        if (!array_key_exists($commandName, $commands)) {
-            echoError("Command not found");
-            throw new RuntimeException("Command not found");
-        }
+        return array_key_exists($commandName, $commandsList)?: throw new RuntimeException("Command not found");
     }
 
     /**
@@ -72,7 +70,7 @@ class CommandsRunner
     protected static function checkInitialization(mixed $commandName): void
     {
         if (!isConfigInitialized() && !in_array($commandName, ['help', 'initialize'])) {
-            echo "\r\nPlease in the first time   run the command: \n".PHP_EOL;
+            echo "\r\nPlease in the first time run the command: \n".PHP_EOL;
             echo warnText("  backfire initialize\n\r").PHP_EOL;
             throw new RuntimeException("The configuration file not found");
         }

@@ -15,6 +15,7 @@ return [
         'initialize' => \BSaqqa\Backfire\Commands\Initialize::class,
         'db:backup' => \BSaqqa\Backfire\Commands\DBBackup::class,
         // 'db:restore' => \BSaqqa\Backfire\Commands\DBRestore::class,
+        'open-config' => \BSaqqa\Backfire\Commands\OpenConfig::class,
         'help' => \BSaqqa\Backfire\Commands\Help::class,
     ],
 ];

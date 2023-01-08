@@ -76,7 +76,7 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
   backfire initialize
 ```
 
-3. Open `~/.backfire.config` file
+3. Open `~/.backfire/backfire.config.php` file
 
 ```shell
   backfire open-config   
