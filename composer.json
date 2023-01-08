@@ -31,7 +31,7 @@
             "helpers/helpers.php"
         ]
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
@@ -40,5 +40,10 @@
         "post-update-cmd": [
             "chmod +x backfire"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
     }
 }
