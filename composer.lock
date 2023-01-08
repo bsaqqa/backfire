@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1df6ab6e3cd0d6c7fa8934f6c98a6cae",
+    "content-hash": "9273f77e17e2fd15f64565bb4b709218",
     "packages": [
         {
             "name": "adbario/php-dot-notation",
@@ -59,7 +59,9 @@
                 "source": "https://github.com/adbario/php-dot-notation/tree/3.2.0"
             },
             "time": "2022-10-15T01:24:00+00:00"
-        },
+        }
+    ],
+    "packages-dev": [
         {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.27.0",
@@ -232,7 +234,6 @@
             "time": "2022-12-22T17:55:15+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],

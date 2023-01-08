@@ -30,7 +30,7 @@ class OpenConfig extends Command implements CommandInterface
         }
 
         // hint: we are using the "code" command to open the config file
-        echo warnText("Hint: ") . "We are using the " . warnText("code") . " command to open the config file" . PHP_EOL;
+        echo warnText("Hint: ") . "We are using the " . warnText("code") . " command to open the config file\n" . PHP_EOL;
 
         echo warnText("Opening the configuration file ...\n\r");
         echo "Path: $configFullPath" . PHP_EOL;
