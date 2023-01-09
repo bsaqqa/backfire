@@ -1,5 +1,7 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
+
+
 /*
  * This file is part of Backfire.
  *
@@ -40,6 +42,20 @@ if (version_compare('8.0.0', PHP_VERSION, '>')) {
 
 if (!ini_get('date.timezone')) {
     ini_set('date.timezone', 'UTC');
+}
+
+# if vendor/autoload.php not found, run composer install
+if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
+    fwrite(
+        STDERR,
+        sprintf(
+            'Dependencies are not installed. We running "composer install" on package current folder.' . PHP_EOL
+        )
+    );
+    # run composer install
+    passthru('composer install');
+
+    die(1);
 }
 
 if (isset($GLOBALS['_composer_autoload_path'])) {

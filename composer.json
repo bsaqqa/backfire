@@ -3,7 +3,7 @@
     "description": "Is a backup Database CLI for PHP",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Baraa AL-Saqqa",

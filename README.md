@@ -9,7 +9,7 @@ We run it as a cron job on Windows/Ubuntu servers to make sure we have the lates
 - [X] Easy to install and configure
 - [X] Can be run as a cron job on Windows and Ubuntu servers
 - [X] Create it as a composer package
-- [X] Supports multiple database servers (Many connections)
+- [X] Supports multiple database servers (Multiple connection)
 - [ ] Supports different database engines (Coming Soon)
 - [ ] Supports automatic restoration of backups (Coming Soon)
 - [ ] Supports email notifications (Coming Soon)
@@ -69,20 +69,25 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
 ```shell
   composer global require bsaqqa/backfire
 ```
+2. Initialize the command to install package dependencies
 
-2. Run initialize command 
+```shell
+  backfire
+```
+
+3. Run initialize command 
 
 ```shell
   backfire initialize
 ```
 
-3. Open `~/.backfire/backfire.config.php` file
+4. Open `~/.backfire/backfire.config.php` file
 
 ```shell
   backfire open-config   
 ```
 
-4. Edit the following variables to match your DB information and backup folder path:
+5. Edit the following variables to match your DB information and backup folder path:
 
 ```php
 "connections" => [
