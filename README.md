@@ -124,8 +124,7 @@ You can run it with below command:
 
 ## 1.4 How to setup cron job on Windows
 
-
-![image](https://user-images.githubusercontent.com/21352835/209930065-56d23560-4f6a-4ac4-8ef5-bb8011ec0914.png)
+![image](https://user-images.githubusercontent.com/21352835/211493648-121ecdf5-02f9-4ffd-a344-94ba80f7d452.png)
 
 
 You can setup cron job on Windows using schedule with below steps:
