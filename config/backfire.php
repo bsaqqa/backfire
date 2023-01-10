@@ -13,6 +13,7 @@ return [
      */
     'commands' => [
         'install' => \BSaqqa\Backfire\Commands\Install::class,
+        'update' => \BSaqqa\Backfire\Commands\Update::class,
         'backup' => \BSaqqa\Backfire\Commands\CreateBackup::class,
         'open-config' => \BSaqqa\Backfire\Commands\OpenConfig::class,
         'help' => \BSaqqa\Backfire\Commands\Help::class,

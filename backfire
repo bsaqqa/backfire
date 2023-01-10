@@ -60,6 +60,23 @@ if (!file_exists(__DIR__ . '/vendor/autoload.php') && in_array('install', $argv)
     );
     # run composer install
     passthru(' composer install');
+
+    echo "\n\033[32mDependency installed successfully!\033[0m\n\r" . PHP_EOL;
+
+}
+
+if (file_exists(__DIR__ . '/vendor/autoload.php') && in_array('update', $argv)) {
+
+    fwrite(
+        STDERR,
+        sprintf(
+            'We running "composer update" on current package folder.' . PHP_EOL
+        )
+    );
+    # run composer update
+    passthru(' composer update');
+
+    echo "\n\033[32mDependency updated successfully!\033[0m\n\r" . PHP_EOL;
 }
 
 $isInstalled = false;
