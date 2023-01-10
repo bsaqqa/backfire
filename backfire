@@ -74,7 +74,9 @@ if (file_exists(__DIR__ . '/vendor/autoload.php') && in_array('update', $argv)) 
         )
     );
     # run composer update
-    passthru(' composer update');
+    passthru('composer global update bsaqqa/backfire');
+
+    passthru('composer update');
 
     echo "\n\033[32mDependency updated successfully!\033[0m\n\r" . PHP_EOL;
 }

@@ -26,9 +26,16 @@ class MySQLDumper extends Dumper implements DumperInterface
             " > $backupFullPath --opt --routines --skip-set-charset --default-character-set=utf8mb4 --single-transaction ".
             "--quick --lock-tables=false 2>null"; // 2>null to hide the password warning from the output
 
+        if(isDebugMode()){
+            // remove > errors.log to show the errors
+            $command = str_replace('2>null', '', $command);
+            echoInfo("Run command: $command");
+        }
+
         exec($command, $output, $return);
 
         if ($return !== 0) {
+            report($output[0]?? null, 'error');
             throw new BackupException("Error while creating the backup for the database \"$dbName\"", [
                 'file' => $backupFullPath,
             ]);

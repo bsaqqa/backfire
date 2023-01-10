@@ -44,6 +44,22 @@ if (!function_exists('echoSuccess'))
     }
 }
 
+//echoInfo
+if(!function_exists('echoInfo'))
+{
+    /**
+     * Show info message
+     *
+     * @param  string  $message
+     * @return void
+     */
+    function echoInfo(string $message): void
+    {
+        echo "\n\033[34m" . $message . "\033[0m\n\r" . PHP_EOL;
+    }
+}
+
+
 if(!function_exists('getArgs')){
     /**
      * Get the arguments from the command line
@@ -84,12 +100,15 @@ if(!function_exists('warnText')){
 //report
 if(!function_exists('report')){
     /**
-     * @param  string  $message
+     * @param  string|null  $message
      * @param  string  $type
      * @return void
      */
-    function report(string $message, string $type = 'info'): void
+    function report(?string $message, string $type = 'info'): void
     {
+        if (is_null($message)) {
+            return ;
+        }
         $type = strtolower($type);
         // write the message to the log file
         $log = new BSaqqa\Backfire\Log();
@@ -105,5 +124,16 @@ if(!function_exists('getHomePath')){
     function getHomePath(): string
     {
         return $_SERVER['HOME'] ?? $_SERVER['HOMEPATH'] ?? $_SERVER['USERPROFILE'];
+    }
+}
+
+// is debug mode
+if(!function_exists('isDebugMode')){
+    /**
+     * @return bool
+     */
+    function isDebugMode(): bool
+    {
+        return in_array('--debug', getArgs(), true);
     }
 }
