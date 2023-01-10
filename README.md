@@ -2,7 +2,7 @@
 
 PHP CLI For Auto Backup DB.
 
-We run it as a cron job on Windows/Ubuntu servers to make sure we have the latest version of DB daily.
+You can run it as a cron job on Windows/Ubuntu servers to do daily backup of your database.
 
 # Features
 
@@ -69,25 +69,22 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
 ```shell
   composer global require bsaqqa/backfire
 ```
-2. Initialize the command to install package dependencies
+2. Run install command to install package dependencies and initialize it
 
 ```shell
-  backfire
+  backfire install
 ```
 
-3. Run initialize command 
 
-```shell
-  backfire initialize
-```
+3. Open `~/.backfire/backfire.config.php` file or using below command to edit it with your database credentials
 
-4. Open `~/.backfire/backfire.config.php` file
+```php
 
 ```shell
   backfire open-config   
 ```
 
-5. Edit the following variables to match your DB information and backup folder path:
+4. Edit the following variables to match your DB information and backup folder path:
 
 ```php
 "connections" => [
@@ -99,8 +96,17 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
       'password' => '',
       'database' => 'backfire',
   ],
-  // ... more connections
+  // ... more connections -> You can add more connections
 ],
+ /**
+     * Storage config
+     *
+     */
+    "storage" => [
+        //...,
+        'path' => 'storage/backups', // relative to the user home directory
+    ],
+
 ```
 
 
@@ -136,8 +142,8 @@ You can setup cron job on Windows using schedule with below steps:
 10. Click on "Actions"
 11. Click New
 12. Select "Start a program"
-13. Enter the path to `backfire.bat` in the "~/composer/vendor/bsaqqa/backfire/" field
-14. Enter the path to `backup` in the "Add arguments" field
+13. Enter the path to "`backfire.bat`" in the field
+14. Enter `backup` argument in the "Add arguments" field
 15. Click OK
 
 
@@ -152,7 +158,7 @@ You can setup cron job on Ubuntu using crontab with below steps:
 
 3. Add the following line to the end of the file:
 
-        0 0 * * * ./backfire backup
+        0 0 * * * backfire backup
 
 
 4. Save and exit

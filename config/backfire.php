@@ -12,9 +12,8 @@ return [
      * Commands List
      */
     'commands' => [
-        'initialize' => \BSaqqa\Backfire\Commands\Initialize::class,
+        'install' => \BSaqqa\Backfire\Commands\Install::class,
         'backup' => \BSaqqa\Backfire\Commands\CreateBackup::class,
-        // 'db:restore' => \BSaqqa\Backfire\Commands\DBRestore::class,
         'open-config' => \BSaqqa\Backfire\Commands\OpenConfig::class,
         'help' => \BSaqqa\Backfire\Commands\Help::class,
     ],

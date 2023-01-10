@@ -44,35 +44,42 @@ if (!ini_get('date.timezone')) {
     ini_set('date.timezone', 'UTC');
 }
 
-# if vendor/autoload.php not found, run composer install
-if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
+# set current directory
+chdir(__DIR__);
+
+# if vendor/autoload.php not found and call install command, run composer install
+# get args
+$argv = $_SERVER['argv'];
+if (!file_exists(__DIR__ . '/vendor/autoload.php') && in_array('install', $argv)) {
+
     fwrite(
         STDERR,
         sprintf(
-            'Dependencies are not installed. We running "composer install" on package current folder.' . PHP_EOL
+            'We running "composer install" on current package folder.' . PHP_EOL
         )
     );
     # run composer install
-    passthru('composer install');
+    passthru(' composer install');
+}
 
+$isInstalled = false;
+
+if (file_exists( __DIR__ . '/vendor/autoload.php')) {
+    define('BACKFIRE_COMPOSER_INSTALL',  __DIR__ . '/vendor/autoload.php');
+    $isInstalled = true;
+}
+
+if ( !$isInstalled ) {
+    fwrite(
+        STDERR,
+        sprintf(
+            PHP_EOL .'Please run "backfire install" to install package.' . PHP_EOL. PHP_EOL
+        )
+    );
     die(1);
 }
 
-if (isset($GLOBALS['_composer_autoload_path'])) {
-    define('BACKFIRE_COMPOSER_INSTALL', $GLOBALS['_composer_autoload_path']);
 
-    unset($GLOBALS['_composer_autoload_path']);
-} else {
-    foreach (array(__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php') as $file) {
-        if (file_exists($file)) {
-            define('BACKFIRE_COMPOSER_INSTALL', $file);
-
-            break;
-        }
-    }
-
-    unset($file);
-}
 
 require BACKFIRE_COMPOSER_INSTALL;
 require __DIR__ . '\src\bootstrap.php';

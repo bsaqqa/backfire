@@ -4,10 +4,10 @@ namespace BSaqqa\Backfire\Commands;
 
 use BSaqqa\Backfire\Contracts\CommandInterface;
 
-class Initialize extends Command implements CommandInterface
+class Install extends Command implements CommandInterface
 {
     // Description of the command
-    protected static string $description = "Initialize the backfire configuration file";
+    protected static string $description = "Installs the backfire configuration file";
 
     /**
      * Run the command

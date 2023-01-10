@@ -70,9 +70,9 @@ class CommandsRunner
      */
     protected static function checkInitialization(mixed $commandName): void
     {
-        if (!isConfigInitialized() && !in_array($commandName, ['help', 'initialize'])) {
+        if (!isConfigInitialized() && !in_array($commandName, ['help', 'install'])) {
             echo "\r\nPlease in the first time run the command: \n".PHP_EOL;
-            echo warnText("  backfire initialize\n\r").PHP_EOL;
+            echo warnText("  backfire install\n\r").PHP_EOL;
             throw new RuntimeException("The configuration file not found");
         }
     }
