@@ -9,7 +9,7 @@ You can run it as a cron job on Windows/Ubuntu servers to do daily backup of you
 - [X] Easy to install and configure
 - [X] Can be run as a cron job on Windows and Ubuntu servers
 - [X] Create it as a composer package
-- [X] Supports multiple database servers (Multiple connection)
+- [X] Supports multiple database servers (Multiple connections)
 - [ ] Supports different database engines (Coming Soon)
 - [ ] Supports automatic restoration of backups (Coming Soon)
 - [ ] Supports email notifications (Coming Soon)
