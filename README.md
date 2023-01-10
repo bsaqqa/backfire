@@ -69,6 +69,7 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
 ```shell
   composer global require bsaqqa/backfire
 ```
+
 2. Run install command to install package dependencies and initialize it
 
 ```shell
@@ -77,8 +78,6 @@ You need to have PHP >=8.0 and [Composer](https://getcomposer.org/) installed on
 
 
 3. Open `~/.backfire/backfire.config.php` file or using below command to edit it with your database credentials
-
-```php
 
 ```shell
   backfire open-config   
